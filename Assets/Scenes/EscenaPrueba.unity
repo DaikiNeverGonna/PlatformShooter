@@ -1390,6 +1390,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1726,6 +1727,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2063,6 +2065,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dff1f744983974188ffdff2188a6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Players:
+  - {fileID: 1626773272}
+  - {fileID: 1410567401}
+  PlayersRBs:
+  - {fileID: 1626773279}
+  - {fileID: 1410567405}
+  Velocity:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   Menu: {fileID: 1713930769}
   PauseObj: {fileID: 1025107367}
 --- !u!1001 &1941269697

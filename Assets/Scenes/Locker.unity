@@ -1048,6 +1048,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1536,10 +1537,10 @@ RectTransform:
   m_Father: {fileID: 1722215230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.90375006, y: 0}
-  m_AnchorMax: {x: 1, y: 0.16222224}
-  m_AnchoredPosition: {x: -1.5, y: 1.6300049}
-  m_SizeDelta: {x: 3, y: 3.25}
+  m_AnchorMin: {x: 0.86500007, y: 0}
+  m_AnchorMax: {x: 1, y: 0.20666668}
+  m_AnchoredPosition: {x: -3.4200134, y: 3.501999}
+  m_SizeDelta: {x: 6.84, y: 6.995001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870563893
 MonoBehaviour:
@@ -1587,7 +1588,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117618373}
         m_TargetAssemblyTypeName: ScenesLoader, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OpenGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
