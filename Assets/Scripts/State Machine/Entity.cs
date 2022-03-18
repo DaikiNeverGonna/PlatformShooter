@@ -33,10 +33,12 @@ public class Entity : MonoBehaviour
     public D_HabilidadState dataHabilidadState;
     public DashState dashState { get; private set; }
     public D_DashState dataDashState;
+
     //Where the actual health of the enemy will be stored
 
-    public Slider slider;
-    public int health { get; private set; }
+    public GameObject sliderObj;
+    private Slider slider;
+    public int health;
 
     //The last damage the entity recibed
     public int damageRecibed { get; private set; }
@@ -46,6 +48,8 @@ public class Entity : MonoBehaviour
     #region Unity Functions
     public virtual void Start()
     {
+        slider = sliderObj.GetComponent<Slider>();
+
         character = this.gameObject;
         rb = character.GetComponent<Rigidbody2D>();
         //anim = character.GetComponent<Animator>();
@@ -56,7 +60,7 @@ public class Entity : MonoBehaviour
         //health = entityData.maxHealth;
 
         idleState = new IdleState(this, stateMachine, "", dataIdleState);
-        movementState = new MovementState(this, stateMachine, " " , dataMovementState);
+        movementState = new MovementState(this, stateMachine, " ", dataMovementState);
         deathState = new DeathState(this, stateMachine, "", dataDeathState);
         habilidadState = new HabilidadState(this, stateMachine, "", dataHabilidadState);
         attackState = new AttackState(this, stateMachine, "", dataAttackState);
@@ -81,36 +85,36 @@ public class Entity : MonoBehaviour
 
     public void InMovement(InputAction.CallbackContext context)
     {
-    movement = context.ReadValue<Vector2>();
-    if (!(movement.x == 0) || !(movement.y == 0)){
-        stateMachine.ChangeState(movementState);
-    }
-    else{
-       stateMachine.ChangeState(idleState);
-    }
+        movement = context.ReadValue<Vector2>();
+        if (!(movement.x == 0) || !(movement.y == 0)) {
+            stateMachine.ChangeState(movementState);
+        }
+        else {
+            stateMachine.ChangeState(idleState);
+        }
     }
 
     public void InShoot(InputAction.CallbackContext context)
     {
-    if (context.started){
-        stateMachine.ChangeState(attackState);
-    }
+        if (context.started) {
+            stateMachine.ChangeState(attackState);
+        }
     }
 
     public void InHability(InputAction.CallbackContext context)
     {
-    if (context.started){
-        stateMachine.ChangeState(habilidadState);
-    }
+        if (context.started) {
+            stateMachine.ChangeState(habilidadState);
+        }
     }
 
     public void InDash(InputAction.CallbackContext context)
     {
-    if (context.started){
-        stateMachine.ChangeState(dashState);
+        if (context.started) {
+            stateMachine.ChangeState(dashState);
 
             Debug.Log("In dash");
-    }
+        }
     }
     #endregion
 
@@ -142,5 +146,17 @@ public class Entity : MonoBehaviour
     {
         this.damageRecibed = attackinf[0];
     }
+    #endregion
+
+    #region Health
+    public void Hurt(int Damage)
+    {
+
+        health -= Damage;
+
+        slider.value = health;
+
+    }
+
     #endregion
 }
